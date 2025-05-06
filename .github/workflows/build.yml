@@ -34,6 +34,7 @@ jobs:
     - name: Export to Spring Boot
       run: |
         camel export --runtime=spring-boot --gav=de.predic8:camel-jbang-pipeline:1.0.0 csv-json.camel.yaml
+        ls
         
     - name: Build Native Image with Spring Boot
       run: |
