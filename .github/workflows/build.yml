@@ -1,0 +1,27 @@
+name: Run Camel YAML with JBang
+
+on:
+  push:
+    paths:
+      - 'routes.yaml'
+
+jobs:
+  run-camel-jbang:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install JBang
+      run: |
+        curl -Ls https://sh.jbang.dev | bash -s - install
+        echo "$HOME/.jbang/bin" >> $GITHUB_PATH
+
+    - name: Install Camel extension for JBang
+      run: |
+        jbang alias add camel@apache/camel
+
+    - name: Run Camel YAML with JBang
+      run: |
+        jbang export --runtime=camel-main csv-json.camel.yaml
