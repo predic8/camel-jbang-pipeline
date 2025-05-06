@@ -37,7 +37,7 @@ jobs:
         
     - name: Build Native Image with Spring Boot
       run: |
-        cd csv-json
+        cd camel-jbang-pipeline
         ./mvnw -Pnative spring-boot:build-image -Dnative
 
     - name: Set up Docker Buildx
@@ -52,7 +52,7 @@ jobs:
 
     - name: Tag and Push Docker Image
       run: |
-        cd csv-json
+        cd camel-jbang-pipeline
         
         docker tag de.predic8:camel-jbang-pipeline:1.0.0 ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:latest
         docker tag de.predic8:camel-jbang-pipeline:1.0.0 ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:${{ github.sha }}
