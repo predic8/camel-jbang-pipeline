@@ -1,5 +1,5 @@
 - route:
-    id: test-2
+    id: test-3
     from:
       id: from-4452
       uri: timer
