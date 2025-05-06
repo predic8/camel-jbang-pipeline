@@ -53,10 +53,7 @@ jobs:
       run: |
         cat > export/Dockerfile << EOF
         FROM eclipse-temurin:17-jre-alpine
-        
         COPY target/*.jar app.jar
-        COPY target/lib /app/lib
-        
         ENTRYPOINT ["java", "-jar", "/app.jar"]
         EOF
 
