@@ -6,6 +6,10 @@ on:
     paths:
       - 'csv-json.camel.yaml'
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
