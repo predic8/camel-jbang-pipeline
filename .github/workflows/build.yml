@@ -19,7 +19,7 @@ jobs:
         echo "$HOME/.jbang/bin" >> $GITHUB_PATH
     - name: Install Camel extension for JBang
       run: |
-        jbang app install camel@apache/camel
+        jbang app install --quiet camel@apache/camel
     - name: Run Camel YAML with JBang
       run: |
         jbang export --runtime=camel-main csv-json.camel.yaml
