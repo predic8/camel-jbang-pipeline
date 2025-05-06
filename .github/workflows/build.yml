@@ -15,7 +15,7 @@ jobs:
 
     - name: Install JBang
       run: |
-        curl -Ls https://sh.jbang.dev | bash -s - install
+        curl -Ls https://sh.jbang.dev | bash -s - app setup
         echo "$HOME/.jbang/bin" >> $GITHUB_PATH
 
     - name: Install Camel extension for JBang
