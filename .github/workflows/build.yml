@@ -23,9 +23,9 @@ jobs:
         jbang trust add https://github.com/apache/
         jbang app install --quiet camel@apache/camel
 
-    - name: Build Native Image with JBang
+    - name: Build Native Image with Camel JBang
       run: |
-        jbang export native csv-json.camel.yaml
+        camel export --native csv-json.camel.yaml
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -36,10 +36,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Extract repository name
-      id: repo-name
-      run: echo "REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
 
     - name: Create Dockerfile
       run: |
