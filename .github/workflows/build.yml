@@ -21,8 +21,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
-        distribution: 'temurin'
+        java-version: '25'
+        distribution: 'openjdk'
 
     - name: Install JBang
       run: |
@@ -56,7 +56,7 @@ jobs:
     - name: Create Dockerfile
       run: |
         cat > export/Dockerfile << EOF
-        FROM eclipse-temurin:17-jre-alpine
+        FROM openjdk:25-jdk-slim
         COPY target/*.jar app.jar
         ENTRYPOINT ["java", "-jar", "/app.jar"]
         EOF
