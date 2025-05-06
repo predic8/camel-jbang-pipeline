@@ -3,7 +3,7 @@ name: Run Camel YAML with JBang
 on:
   push:
     paths:
-      - 'routes.yaml'
+      - 'csv-json.camel.yaml'
 
 jobs:
   run-camel-jbang:
