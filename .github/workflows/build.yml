@@ -66,5 +66,5 @@ jobs:
         context: ./export
         push: true
         tags: |
-          ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:latest
-          ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:${{ github.sha }}
+          ghcr.io/camel-jbang-pipeline/camel-jbang-pipeline:latest
+          ghcr.io/camel-jbang-pipeline/camel-jbang-pipeline:${{ github.sha }}
