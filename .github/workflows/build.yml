@@ -33,12 +33,11 @@ jobs:
 
     - name: Export to Spring Boot
       run: |
-        camel export --runtime=spring-boot --gav=de.predic8:camel-jbang-pipeline:1.0.0 csv-json.camel.yaml
-        ls
+        camel export --runtime=spring-boot --gav=de.predic8:camel-jbang-pipeline:1.0.0 --directory=export csv-json.camel.yaml
         
     - name: Build Native Image with Spring Boot
       run: |
-        cd camel-jbang-pipeline
+        cd export
         ./mvnw -Pnative spring-boot:build-image -Dnative
 
     - name: Set up Docker Buildx
@@ -53,8 +52,6 @@ jobs:
 
     - name: Tag and Push Docker Image
       run: |
-        cd camel-jbang-pipeline
-        
         docker tag de.predic8:camel-jbang-pipeline:1.0.0 ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:latest
         docker tag de.predic8:camel-jbang-pipeline:1.0.0 ghcr.io/${{ steps.repo-name.outputs.REPO_NAME }}/camel-jbang-pipeline:${{ github.sha }}
         
