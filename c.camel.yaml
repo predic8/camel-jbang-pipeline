@@ -1,0 +1,17 @@
+- route:
+    id: c
+    from:
+      id: from-3feb
+      uri: platform-http
+      parameters:
+        path: /c
+      steps:
+        - log:
+            id: log-dc5f
+            message: "C: ${body}"
+        - setBody:
+            id: setBody-55e8
+            expression:
+              constant:
+                id: constant-681a
+                expression: Hi from C!
