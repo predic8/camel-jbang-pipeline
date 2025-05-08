@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'a.camel.yaml'
+      - '*.camel.yaml'
 
 permissions:
   contents: read
@@ -36,7 +36,7 @@ jobs:
 
     - name: Export
       run: |
-        camel export --runtime=camel-main --gav=de.predic8:camel-jbang-pipeline:1.0.0 --directory=export csv-json.camel.yaml
+        camel export --runtime=camel-main --gav=de.predic8:camel-jbang-pipeline:1.0.0 --directory=export *.camel.yaml
         
     - name: Build Java application
       run: |
