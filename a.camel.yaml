@@ -8,11 +8,8 @@
         path: /a
       steps:
         - log:
-            id: log-8347
             message: "A: ${body}"
         - setBody:
-            id: setBody-3097
             expression:
               constant:
-                id: constant-5484
                 expression: Hi from A!
