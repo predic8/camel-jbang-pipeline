@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '*.camel.yaml'
+      - '**/*.camel.yaml'
 
 permissions:
   contents: read
