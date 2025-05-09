@@ -8,4 +8,4 @@
         - setBody:
             expression:
               constant:
-                expression: Hi from B!
+                expression: Hallo from B!
